@@ -3,7 +3,7 @@ var socket = require('socket.io');
 
 // Express setup
 var app = express();
-var server = app.listen(3000, function() {
+var server = app.listen(3000, function(){
     console.log("Listening on port 3000.")
 });
 
@@ -14,7 +14,7 @@ var io = socket(server);
 
 io.on('connection', function(socket){
     console.log("socket connected", socket.id);
-    socket.on("chatmsg", function(data){
-        io.sockets.emit("chatmsg", data)
+    socket.on("chat", function(data){
+        io.sockets.emit("chat", data);
     });
 });
